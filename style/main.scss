@@ -1,0 +1,145 @@
+html,
+body,
+#root {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.row {
+  background: #eee;
+  border-radius: 2px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 10px;
+  display: flex;
+  border-radius: 3px;
+}
+
+.column {
+  font-size: 0.8rem;
+  flex: 1 0 6%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &.title {
+    font-weight: bold;
+  }
+
+  &.input {
+    padding: 1rem;
+    margin: -1rem 0.5rem;
+    box-shadow: 0 3px 10px -5px rgba(#333, 0.6);
+    border: none;
+    border-radius: 4px;
+  }
+}
+
+.paged-result {
+  &::before {
+    content: 'Page' attr(data-page-index);
+    display: block;
+    position: relative;
+    background: rgb(106, 80, 141);
+    border-radius: 4px;
+
+    opacity: 0.5;
+    padding: 0.3rem;
+    box-sizing: border-box;
+    height: 2rem;
+    margin-bottom: -2rem;
+    margin-top: -1rem;
+    color: #fff;
+  }
+
+  &::after {
+    height: 10px;
+  }
+}
+
+.upper-bound,
+.lower-bound {
+  background: #f34;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  height: 100px;
+  margin-bottom: -120px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.lower-bound {
+  margin-top: -120px;
+}
+
+.scroll-area {
+  background: #f9f9f9;
+  border: solid thin #ccc;
+  border-radius: 4px;
+  height: calc(100vh - 11rem);
+  margin: 1rem;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.meta-information {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 1.5rem;
+  box-sizing: border-box;
+
+  h1 {
+    margin: 0;
+    font-weight: normal;
+  }
+
+  .list-stats {
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+    opacity: 0.6;
+    font-size: 0.8rem;
+
+    & > * {
+      margin-right: 1rem;
+    }
+  }
+}
+
+.hide-overlays {
+  .upper-bound,
+  .lower-bound {
+    visibility: hidden;
+  }
+
+  .paged-result {
+    &::before {
+      visibility: hidden;
+    }
+  }
+}
+
+button {
+  background: #f34;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background: lighten(#f34, 5);
+  }
+}
