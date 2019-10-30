@@ -1,9 +1,7 @@
 import { PAGE_SIZE, MAX_PAGE_LIMIT } from '../constants';
+
 let cachedDataset = {};
 const cachedPagedResults = {};
-
-window.cachedDataset = cachedDataset;
-window.cachedPagedResults = cachedPagedResults;
 
 const getExpandPageRange = ({ pageRange, isScrollingUp, totalDataCount }) => {
   let [start, end] = pageRange;
